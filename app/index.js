@@ -1,17 +1,20 @@
 const express = require("express");
 const app = express();
+const port = 3000;
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
+/* Servir contenido estatico */
+app.use(express.static("public"));
 
-app.get("/hola-mundo", function (req, res) {
+
+app.get("/hola-mundo", (req, res) => {
   res.send("Hello World");
 });
 
 /* Si no encuentra ninguna ruta */
-app.get("*", function (req, res) {
+app.get("*", (req, res) => {
   res.send("404 not found");
 });
 
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`El server esta corriendo en el puerto ${port}`);
+});
