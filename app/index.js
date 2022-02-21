@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 /* Servir contenido estatico */
 app.use(express.static(path.join(__dirname, "../", "/public")));
