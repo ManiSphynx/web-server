@@ -1,8 +1,9 @@
 const http = require("http");
 
 const server = http.createServer((request, response) => {
-  response.writeHead(200, { "Content-Type": "text/plain" });
-  response.write("Hola bebe como haz estadooo xdxd");
+  response.setHeader('Content-Disposition', 'attachment; filename=lista.csv')
+  response.writeHead(200, { "Content-Type": "application/csv" });
+  response.write("Hola");
   response.end();
 });
 
