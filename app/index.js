@@ -5,9 +5,12 @@ const port = 3000;
 /* Servir contenido estatico */
 app.use(express.static("public"));
 
+app.get("/generic", (req, res) => {
+ res.sendFile('generic.html', {root: 'public'})
+});
 
-app.get("/hola-mundo", (req, res) => {
-  res.send("Hello World");
+app.get("/elements", (req, res) => {
+    res.sendFile('elements.html', {root: 'public'})
 });
 
 /* Si no encuentra ninguna ruta */
